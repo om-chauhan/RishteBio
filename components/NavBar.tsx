@@ -15,11 +15,9 @@ export const NavBar: React.FC<NavBarProps> = ({ language, setLanguage }) => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16">
                     <div className="flex items-center gap-2">
-                        <Link to="/" className="flex items-center gap-2">
-                            <div className="bg-rose-500 p-1.5 rounded-lg">
-                                <Heart className="text-white fill-current" size={20} />
-                            </div>
-                            <span className="font-bold text-xl text-slate-800 tracking-tight font-['Playfair_Display']">RishteBio</span>
+                        <Link to="/" className="flex items-center gap-3">
+                            <img src="/logo.svg" alt="RishteBio Logo" className="w-9 h-9" />
+                            <span className="font-bold text-xl text-slate-900 tracking-tight font-['Playfair_Display']">RishteBio</span>
                         </Link>
                     </div>
 

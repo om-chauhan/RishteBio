@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Heart } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -14,10 +15,10 @@ export const Footer: React.FC = () => {
 
                     {/* Links */}
                     <div className="flex items-center gap-6 text-sm text-slate-500 font-medium">
-                        <a href="#" className="hover:text-rose-600 transition-colors">About</a>
-                        <a href="#" className="hover:text-rose-600 transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-rose-600 transition-colors">Terms of Service</a>
-                        <a href="#" className="hover:text-rose-600 transition-colors">Contact</a>
+                        <Link to="/about" className="hover:text-rose-600 transition-colors">About</Link>
+                        <Link to="/privacy-policy" className="hover:text-rose-600 transition-colors">Privacy Policy</Link>
+                        <Link to="/terms-of-service" className="hover:text-rose-600 transition-colors">Terms of Service</Link>
+                        <Link to="/contact" className="hover:text-rose-600 transition-colors">Contact</Link>
                     </div>
 
                     {/* Copyright */}

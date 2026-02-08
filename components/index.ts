@@ -6,6 +6,7 @@ export { DraftRecoveryModal } from './DraftRecoveryModal';
 export { TemplateGalleryModal } from './TemplateGalleryModal';
 export { MobileBottomBar } from './MobileBottomBar';
 export { EditorTabs, EDITOR_TABS } from './EditorTabs';
+export { ScrollToTop } from './ScrollToTop';
 
 // Form Components
 export { InputGroup, SelectGroup, TextAreaGroup } from './FormElements';

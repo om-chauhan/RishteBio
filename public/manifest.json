@@ -1,0 +1,22 @@
+{
+    "name": "RishteBio - Marriage Bio-Data Maker",
+    "short_name": "RishteBio",
+    "description": "Create beautiful marriage bio-data online with premium templates.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#e11d48",
+    "icons": [
+        {
+            "src": "favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "logo.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+        }
+    ],
+    "orientation": "portrait"
+}

@@ -65,6 +65,10 @@ export enum TemplateType {
   MODERN = 'MODERN',
   MINIMAL = 'MINIMAL',
   CREATIVE = 'CREATIVE',
+  ELEGANT = 'ELEGANT',
+  ROYAL = 'ROYAL',
+  FLORAL = 'FLORAL',
+  CORPORATE = 'CORPORATE',
 }
 
 export interface TemplateConfig {

@@ -1073,13 +1073,13 @@ const Editor = ({ language, setLanguage }: { language: 'en' | 'hi', setLanguage:
                 <div>
                   <div className="flex justify-between items-center mb-1">
                     <label className="block text-xs font-semibold text-slate-500 uppercase">About Me</label>
-                    <button
+                    {/* <button
                       onClick={generateAIAbout}
                       disabled={isGenerating || !data.education.occupation}
                       className="flex items-center gap-1 text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-rose-500 hover:opacity-80 disabled:opacity-50"
                     >
                       <Sparkles size={12} className="text-purple-500" /> {isGenerating ? 'Writing...' : 'AI Rewrite'}
-                    </button>
+                    </button> */}
                   </div>
                   <textarea
                     className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-200 focus:border-rose-400 outline-none text-sm transition-all bg-white text-slate-900"

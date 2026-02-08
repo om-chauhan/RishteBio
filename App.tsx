@@ -459,26 +459,121 @@ const Home = () => {
 
         {/* Sample Profiles Section */}
         <div className="w-full max-w-6xl mb-20">
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <PenTool className="text-rose-500" size={24} />
-            <h2 className="text-2xl font-bold text-slate-800">Start with a Sample Profile</h2>
+          <div className="flex flex-col items-center justify-center gap-2 mb-8">
+            <div className="flex items-center gap-2">
+              <PenTool className="text-rose-500" size={24} />
+              <h2 className="text-2xl font-bold text-slate-800">Start with a Sample Profile</h2>
+            </div>
+            <p className="text-sm text-slate-500">Click any template to customize it with your own details</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          {/* Mobile Cards - Horizontal Layout */}
+          <div className="flex flex-col gap-4 sm:hidden">
             {SAMPLE_PROFILES.map((profile) => (
               <button
-                key={profile.id}
+                key={`mobile-${profile.id}`}
                 onClick={() => handleUseSample(profile)}
-                className="bg-white p-5 rounded-xl border border-slate-200 hover:border-rose-300 hover:shadow-lg transition-all text-left group flex flex-col items-center text-center"
+                className="group flex flex-row text-left rounded-2xl overflow-hidden transition-all duration-300 active:scale-[0.98] shadow-lg bg-white border border-slate-100"
               >
-                <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mb-3 group-hover:bg-rose-50 group-hover:text-rose-500 transition-colors text-slate-600">
-                  <profile.icon size={24} />
+                {/* Left: Preview Thumbnail */}
+                <div className="w-28 aspect-square overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100 relative flex-shrink-0 border-r border-slate-200/50">
+                  <div
+                    className="absolute top-1 left-1 pointer-events-none"
+                    style={{
+                      width: '794px',
+                      height: '1123px',
+                      transform: 'scale(0.13)',
+                      transformOrigin: 'top left',
+                    }}
+                  >
+                    <TemplateRenderer
+                      template={profile.templateId as TemplateType}
+                      data={profile}
+                    />
+                  </div>
+                  {/* Fade overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/70" />
                 </div>
-                <h3 className="font-bold text-slate-800 mb-1">{profile.label}</h3>
-                <p className="text-xs text-slate-500 mb-3 line-clamp-2">{profile.aboutMe}</p>
-                <span className="text-xs font-semibold text-rose-600 uppercase tracking-wider flex items-center gap-1">
-                  Edit this <ChevronRight size={12} />
-                </span>
+
+                {/* Right: Profile Info */}
+                <div className="flex-1 p-4 flex flex-col justify-center">
+                  <div className="flex items-center gap-2.5 mb-2">
+                    <div className="w-9 h-9 bg-gradient-to-br from-rose-100 to-rose-50 rounded-xl flex items-center justify-center shadow-sm">
+                      <profile.icon size={16} className="text-rose-500" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-slate-800 text-base truncate">{profile.label}</h3>
+                      <p className="text-xs text-slate-500">{profile.personal.fullName}</p>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5 mt-1">
+                    <div className="flex items-center gap-2 text-xs text-slate-600">
+                      <MapPin size={12} className="text-rose-400 flex-shrink-0" />
+                      <span>{profile.contact.city}, {profile.contact.state}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-slate-600">
+                      <Briefcase size={12} className="text-rose-400 flex-shrink-0" />
+                      <span className="truncate">{profile.education.occupation}</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-3">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-rose-600 bg-rose-50 px-3 py-1.5 rounded-full">
+                      <Edit3 size={12} /> Customize Template
+                    </span>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Desktop/Tablet Cards - Vertical Thumbnail Layout */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+            {SAMPLE_PROFILES.map((profile) => (
+              <button
+                key={`desktop-${profile.id}`}
+                onClick={() => handleUseSample(profile)}
+                className="group relative flex flex-col text-left rounded-xl overflow-hidden transition-all duration-300 hover:ring-2 hover:ring-rose-400 hover:ring-offset-2 shadow-md hover:shadow-xl bg-white"
+              >
+                {/* Live Preview Container - A4 aspect ratio */}
+                <div className="aspect-[210/297] overflow-hidden bg-slate-100 relative flex items-center justify-center">
+                  {/* Miniature Live Preview - centered */}
+                  <div
+                    className="absolute top-1/2 left-1/2 pointer-events-none"
+                    style={{
+                      width: '794px',
+                      height: '1123px',
+                      transform: 'translate(-50%, -50%) scale(0.18)',
+                    }}
+                  >
+                    <TemplateRenderer
+                      template={profile.templateId as TemplateType}
+                      data={profile}
+                    />
+                  </div>
+
+                  {/* Overlay gradient for better contrast on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                  {/* Hover Badge */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="bg-white/95 backdrop-blur-sm text-rose-600 text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full shadow-lg flex items-center gap-1.5">
+                      <Edit3 size={14} /> Customize
+                    </span>
+                  </div>
+                </div>
+
+                {/* Profile Info */}
+                <div className="p-3 bg-white border-t border-slate-100 group-hover:bg-slate-50 transition-colors">
+                  <div className="flex items-center gap-2 mb-1">
+                    <div className="w-6 h-6 bg-rose-50 rounded-full flex items-center justify-center group-hover:bg-rose-100 transition-colors">
+                      <profile.icon size={12} className="text-rose-500" />
+                    </div>
+                    <h3 className="font-bold text-slate-800 text-sm truncate">{profile.label}</h3>
+                  </div>
+                  <p className="text-[11px] text-slate-500 line-clamp-1">{profile.personal.fullName} • {profile.contact.city}</p>
+                </div>
               </button>
             ))}
           </div>

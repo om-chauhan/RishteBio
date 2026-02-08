@@ -119,13 +119,13 @@
         /* Hide everything by default */
         body * {
           visibility: hidden;
-          height: 0; /* Try to collapse space of hidden elements */
+          height: 0;
         }
 
         /* Show the specific preview content */
         #biodata-preview, #biodata-preview * {
           visibility: visible;
-          height: auto; /* Reset height for visible elements */
+          height: auto;
         }
 
         /* Position the preview content to fill the page exactly */
@@ -148,8 +148,30 @@
           
           z-index: 9999;
           
-          /* Clip overflow to prevent blank second pages if content is slightly too long */
+          /* Clip overflow to prevent blank second pages */
           overflow: hidden !important; 
+        }
+
+        /* 
+           COMPACT LAYOUT OVERRIDES FOR PRINT 
+           These rules shrink the spacious Tailwind classes used in templates 
+           so the content fits on a single page.
+        */
+        #biodata-preview .p-10 { padding: 1.5rem !important; }
+        #biodata-preview .p-8 { padding: 1.25rem !important; }
+        #biodata-preview .mb-8 { margin-bottom: 1rem !important; }
+        #biodata-preview .mb-6 { margin-bottom: 0.75rem !important; }
+        #biodata-preview .gap-6 { gap: 0.75rem !important; }
+        #biodata-preview .gap-8 { gap: 1rem !important; }
+        #biodata-preview .text-4xl { font-size: 1.75rem !important; line-height: 2rem !important; }
+        #biodata-preview .text-5xl { font-size: 2.25rem !important; }
+        
+        /* Reduce vertical spacing in stacks */
+        #biodata-preview .space-y-6 > :not([hidden]) ~ :not([hidden]) { 
+           margin-top: 0.75rem !important; 
+        }
+        #biodata-preview .space-y-8 > :not([hidden]) ~ :not([hidden]) { 
+           margin-top: 1rem !important; 
         }
 
         /* Ensure background graphics print */

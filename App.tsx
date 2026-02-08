@@ -1099,7 +1099,7 @@ const Editor = ({ language, setLanguage }: { language: 'en' | 'hi', setLanguage:
                     width: `${210 * previewScale}mm`, 
                     minHeight: `${297 * previewScale}mm` 
                   }}
-                  className={`relative transition-all duration-500 ease-out print:!w-auto print:!h-auto print:static print:m-0 ${isMounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+                  className={`relative transition-all duration-500 ease-out print:!w-auto print:!h-auto print:static print:m-0 print:transform-none print:opacity-100 ${isMounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
                 >
                    {/* The actual A4 content scaled down */}
                    <div 

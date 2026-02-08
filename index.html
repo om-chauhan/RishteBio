@@ -104,27 +104,28 @@
 
       @media print {
         @page {
-          size: A4;
+          size: A4 portrait;
           margin: 0;
         }
         
-        body {
-          margin: 0;
-          padding: 0;
+        html, body {
+          width: 210mm;
+          height: 297mm;
+          margin: 0 !important;
+          padding: 0 !important;
           background: white;
         }
 
-        /* 
-           Technique: Hide everything by default, then make the specific ID visible and fixed.
-           This removes the need for complex layout manipulation in React components.
-        */
+        /* Hide everything by default */
         body * {
           visibility: hidden;
+          height: 0; /* Try to collapse space of hidden elements */
         }
 
-        /* Show the specific content */
+        /* Show the specific preview content */
         #biodata-preview, #biodata-preview * {
           visibility: visible;
+          height: auto; /* Reset height for visible elements */
         }
 
         /* Position the preview content to fill the page exactly */
@@ -133,26 +134,22 @@
           left: 0;
           top: 0;
           width: 210mm !important;
-          /* 
-            Set min-height slightly less than 297mm to prevent rounding errors 
-            causing a blank second page in some browsers 
-          */
-          min-height: 296mm !important; 
+          height: 297mm !important; /* Force exact A4 height */
           margin: 0 !important;
           padding: 0 !important;
           
           /* Reset React transform scaling */
           transform: none !important;
           
-          /* Remove Shadows/Borders */
+          /* Remove Shadows/Borders/Backgrounds */
           box-shadow: none !important;
           border: none !important;
+          background-color: transparent !important; /* Allow template bg to show */
           
           z-index: 9999;
-          background: white !important;
           
-          /* Ensure overflow is handled within the element if needed, though usually A4 content fits */
-          overflow: visible !important;
+          /* Clip overflow to prevent blank second pages if content is slightly too long */
+          overflow: hidden !important; 
         }
 
         /* Ensure background graphics print */

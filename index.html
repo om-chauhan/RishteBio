@@ -107,26 +107,55 @@
           size: A4;
           margin: 0;
         }
+        
         body {
           margin: 0;
           padding: 0;
           background: white;
         }
-        .no-print {
-          display: none !important;
+
+        /* 
+           Technique: Hide everything by default, then make the specific ID visible and fixed.
+           This removes the need for complex layout manipulation in React components.
+        */
+        body * {
+          visibility: hidden;
         }
-        /* Specific styles for the resume preview container when printing */
-        .resume-preview {
-          display: block !important;
+
+        /* Show the specific content */
+        #biodata-preview, #biodata-preview * {
+          visibility: visible;
+        }
+
+        /* Position the preview content to fill the page exactly */
+        #biodata-preview {
+          position: fixed;
+          left: 0;
+          top: 0;
           width: 210mm !important;
-          min-height: 297mm !important;
-          margin: 0 auto !important; /* Center horizontally if needed */
+          /* 
+            Set min-height slightly less than 297mm to prevent rounding errors 
+            causing a blank second page in some browsers 
+          */
+          min-height: 296mm !important; 
+          margin: 0 !important;
+          padding: 0 !important;
+          
+          /* Reset React transform scaling */
+          transform: none !important;
+          
+          /* Remove Shadows/Borders */
           box-shadow: none !important;
-          transform: none !important; /* Reset onscreen scaling */
-          position: static !important; /* Allow normal flow */
+          border: none !important;
+          
+          z-index: 9999;
+          background: white !important;
+          
+          /* Ensure overflow is handled within the element if needed, though usually A4 content fits */
           overflow: visible !important;
         }
-        /* Ensure background colors print */
+
+        /* Ensure background graphics print */
         * {
           -webkit-print-color-adjust: exact !important;
           print-color-adjust: exact !important;

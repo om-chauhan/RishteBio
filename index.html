@@ -508,6 +508,282 @@
         box-shadow: 0 0 0 2px var(--tw-ring-color, rgba(0, 0, 0, 0.1)) !important;
       }
 
+      /* ============================================
+         CRITICAL PRINT FIXES FOR NEW TEMPLATES
+         ============================================ */
+
+      /* FIX: Gradient text (bg-clip-text) doesn't work in print - use solid gold color */
+      #biodata-preview .bg-clip-text.text-transparent {
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+        background-image: none !important;
+        -webkit-text-fill-color: #D4A574 !important;
+        color: #D4A574 !important;
+        /* Gold color for Royal template name */
+      }
+
+      /* FIX: Semi-transparent white text - make fully opaque for print */
+      #biodata-preview .text-white\/70,
+      #biodata-preview .text-white\/80,
+      #biodata-preview .text-white\/90,
+      #biodata-preview .text-white\/95 {
+        color: rgba(255, 255, 255, 1) !important;
+      }
+
+      /* FIX: Opacity classes - ensure text is fully visible */
+      #biodata-preview .opacity-70,
+      #biodata-preview .opacity-80,
+      #biodata-preview .opacity-90 {
+        opacity: 1 !important;
+      }
+
+      /* FIX: Semi-transparent text colors in various templates */
+      #biodata-preview .text-amber-800\/80,
+      #biodata-preview .text-amber-900\/70 {
+        color: #92400e !important;
+      }
+
+      #biodata-preview .text-rose-400,
+      #biodata-preview .text-rose-500 {
+        color: #f43f5e !important;
+      }
+
+      #biodata-preview .text-amber-300,
+      #biodata-preview .text-amber-300\/80 {
+        color: #fcd34d !important;
+      }
+
+      #biodata-preview .text-amber-400 {
+        color: #fbbf24 !important;
+      }
+
+      #biodata-preview .text-amber-500 {
+        color: #f59e0b !important;
+      }
+
+      #biodata-preview .text-amber-600 {
+        color: #d97706 !important;
+      }
+
+      #biodata-preview .text-amber-700 {
+        color: #b45309 !important;
+      }
+
+      #biodata-preview .text-blue-200 {
+        color: #bfdbfe !important;
+      }
+
+      #biodata-preview .text-blue-600 {
+        color: #2563eb !important;
+      }
+
+      /* FIX: Ensure dark template text is white and visible */
+      #biodata-preview .from-purple-950,
+      #biodata-preview .from-purple-900 {
+        color: white !important;
+      }
+
+      /* FIX: Card backgrounds in Royal template - each card type gets its unique color */
+      #biodata-preview .from-purple-700\/50 {
+        background: #7e22ce !important;
+        /* Purple for Personal Details */
+        background-image: none !important;
+      }
+
+      #biodata-preview .from-rose-700\/50 {
+        background: #be123c !important;
+        /* Rose for Education & Career */
+        background-image: none !important;
+      }
+
+      #biodata-preview .from-amber-700\/30 {
+        background: #b45309 !important;
+        /* Amber for Family Background */
+        background-image: none !important;
+      }
+
+      #biodata-preview .from-indigo-700\/50 {
+        background: #4338ca !important;
+        /* Indigo for Birth & Horoscope */
+        background-image: none !important;
+      }
+
+      /* FIX: Ensure icons are visible with solid colors */
+      #biodata-preview .fill-amber-300,
+      #biodata-preview .fill-amber-400\/50 {
+        fill: #fbbf24 !important;
+      }
+
+      #biodata-preview .fill-rose-300 {
+        fill: #fda4af !important;
+      }
+
+      /* FIX: Corporate template - ensure header gradient is solid for print */
+      #biodata-preview .from-blue-900 {
+        background-color: #1e3a8a !important;
+      }
+
+      #biodata-preview .via-blue-800 {
+        background-color: #1e40af !important;
+      }
+
+      #biodata-preview .to-indigo-900 {
+        background-color: #312e81 !important;
+      }
+
+      /* FIX: Corporate template contact card gradient */
+      #biodata-preview .from-blue-600 {
+        background-color: #2563eb !important;
+      }
+
+      #biodata-preview .to-indigo-700 {
+        background-color: #4338ca !important;
+      }
+
+      /* FIX: Elegant template - ensure amber colors are solid */
+      #biodata-preview .from-amber-50,
+      #biodata-preview .to-amber-100\/30 {
+        background-color: #fffbeb !important;
+      }
+
+      #biodata-preview .text-amber-950 {
+        color: #451a03 !important;
+      }
+
+      #biodata-preview .text-amber-900 {
+        color: #78350f !important;
+      }
+
+      #biodata-preview .text-amber-800 {
+        color: #92400e !important;
+      }
+
+      /* FIX: Floral template - ensure rose colors print correctly */
+      #biodata-preview .from-pink-50,
+      #biodata-preview .to-rose-50 {
+        background-color: #fff1f2 !important;
+      }
+
+      #biodata-preview .text-rose-950 {
+        color: #4c0519 !important;
+      }
+
+      #biodata-preview .text-rose-900 {
+        color: #881337 !important;
+      }
+
+      #biodata-preview .text-rose-800 {
+        color: #9f1239 !important;
+      }
+
+      #biodata-preview .text-rose-700 {
+        color: #be123c !important;
+      }
+
+      #biodata-preview .text-rose-600 {
+        color: #e11d48 !important;
+      }
+
+      /* FIX: Border colors for print */
+      #biodata-preview .border-amber-300 {
+        border-color: #fcd34d !important;
+      }
+
+      #biodata-preview .border-amber-400\/30,
+      #biodata-preview .border-amber-400\/40 {
+        border-color: rgba(251, 191, 36, 0.6) !important;
+      }
+
+      #biodata-preview .border-amber-200 {
+        border-color: #fde68a !important;
+      }
+
+      #biodata-preview .border-rose-200,
+      #biodata-preview .border-rose-200\/50 {
+        border-color: #fecdd3 !important;
+      }
+
+      #biodata-preview .border-rose-100 {
+        border-color: #ffe4e6 !important;
+      }
+
+      #biodata-preview .border-white\/10,
+      #biodata-preview .border-white\/20 {
+        border-color: rgba(255, 255, 255, 0.4) !important;
+      }
+
+      #biodata-preview .border-purple-500\/20,
+      #biodata-preview .border-rose-500\/20,
+      #biodata-preview .border-amber-500\/20,
+      #biodata-preview .border-indigo-500\/20 {
+        border-color: rgba(168, 85, 247, 0.4) !important;
+      }
+
+      /* FIX: Royal template - ensure main gradient background prints correctly */
+      #biodata-preview .from-purple-950.via-purple-900.to-rose-900,
+      #biodata-preview .bg-gradient-to-br.from-purple-950 {
+        background: linear-gradient(to bottom right, #3b0764, #581c87, #881337) !important;
+      }
+
+      /* FIX: Force all text in Royal template cards to be white */
+      #biodata-preview .from-purple-700\/50 *,
+      #biodata-preview .from-rose-700\/50 *,
+      #biodata-preview .from-amber-700\/30 *,
+      #biodata-preview .from-indigo-700\/50 * {
+        color: #ffffff !important;
+      }
+
+      /* FIX: Contact card in Royal template */
+      #biodata-preview .bg-white\/10 {
+        background-color: rgba(88, 28, 135, 0.85) !important;
+      }
+
+      /* FIX: Ensure labels and values are both visible in print */
+      #biodata-preview .border-b.border-white\/10 {
+        border-color: rgba(255, 255, 255, 0.3) !important;
+      }
+
+      /* FIX: Ensure SVG elements in Floral template are visible */
+      #biodata-preview svg circle,
+      #biodata-preview svg path {
+        fill-opacity: 0.5 !important;
+      }
+
+      /* FIX: Absolute positioned decorative elements */
+      #biodata-preview .pointer-events-none {
+        pointer-events: none !important;
+      }
+
+      /* FIX: Z-index for layered content */
+      #biodata-preview .z-10 {
+        z-index: 10 !important;
+        position: relative !important;
+      }
+
+      #biodata-preview .z-0 {
+        z-index: 0 !important;
+      }
+
+      /* FIX: Flex grow for proper layout */
+      #biodata-preview .flex-grow {
+        flex-grow: 1 !important;
+      }
+
+      /* FIX: Aspect ratio for photos */
+      #biodata-preview .aspect-\[3\/4\] {
+        aspect-ratio: 3/4 !important;
+      }
+
+      /* FIX: Translate utilities for positioned elements */
+      #biodata-preview .-translate-x-1\/2 {
+        transform: translateX(-50%) !important;
+      }
+
+      /* FIX: Ensure italic text prints correctly */
+      #biodata-preview .italic {
+        font-style: italic !important;
+      }
+
       /* Color Accuracy */
       * {
         -webkit-print-color-adjust: exact !important;

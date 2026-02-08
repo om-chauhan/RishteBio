@@ -1060,8 +1060,8 @@ const Editor = ({ language, setLanguage }: { language: 'en' | 'hi', setLanguage:
                     </button>
                   </div>
 
-                  <div className="p-8 overflow-y-auto">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                  <div className="p-4 sm:p-8 overflow-y-auto">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
                       {TEMPLATES.map(t => (
                         <button
                           key={t.id}
@@ -1075,14 +1075,14 @@ const Editor = ({ language, setLanguage }: { language: 'en' | 'hi', setLanguage:
                             }`}
                         >
                           {/* Live Preview Container */}
-                          <div className="aspect-[210/297] overflow-hidden bg-slate-100 relative">
-                            {/* Miniature Live Preview - fits within thumbnail */}
+                          <div className="aspect-[210/297] overflow-hidden bg-slate-100 relative flex items-center justify-center">
+                            {/* Miniature Live Preview - centered within thumbnail */}
                             <div
-                              className="absolute top-0 left-0 origin-top-left pointer-events-none"
+                              className="absolute top-1/2 left-1/2 pointer-events-none"
                               style={{
                                 width: '794px',
                                 height: '1123px',
-                                transform: 'scale(0.22)',
+                                transform: 'translate(-50%, -50%) scale(0.18)',
                               }}
                             >
                               <TemplateRenderer

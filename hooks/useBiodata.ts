@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, Dispatch, SetStateAction, ChangeEvent } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Biodata } from '../types';
 import { INITIAL_DATA } from '../constants';
@@ -10,16 +10,16 @@ interface UseBiodataOptions {
 
 interface UseBiodataReturn {
     data: Biodata;
-    setData: React.Dispatch<React.SetStateAction<Biodata>>;
+    setData: Dispatch<SetStateAction<Biodata>>;
     lastSaved: Date | null;
     showDraftModal: boolean;
     isReady: boolean;
     handleInputChange: (section: keyof Biodata, field: string, value: string) => void;
-    handlePhotoUpload: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handlePhotoUpload: (e: ChangeEvent<HTMLInputElement>) => void;
     handleResumeDraft: () => void;
     handleStartFresh: () => void;
     handleExportJSON: () => void;
-    handleFileImport: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleFileImport: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const useBiodata = ({ setLanguage }: UseBiodataOptions): UseBiodataReturn => {
@@ -76,7 +76,7 @@ export const useBiodata = ({ setLanguage }: UseBiodataOptions): UseBiodataReturn
         }));
     }, []);
 
-    const handlePhotoUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handlePhotoUpload = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (file) {
             const reader = new FileReader();
@@ -108,7 +108,7 @@ export const useBiodata = ({ setLanguage }: UseBiodataOptions): UseBiodataReturn
         exportToJSON(data);
     }, [data]);
 
-    const handleFileImport = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFileImport = useCallback((e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
 

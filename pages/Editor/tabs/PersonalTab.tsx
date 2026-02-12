@@ -1,9 +1,10 @@
 import React from 'react';
 import { Calendar, User } from 'lucide-react';
-import DatePicker from 'react-datepicker';
+import { CustomDatePicker } from '../../../components/CustomDatePicker';
 import { Biodata } from '../../../types';
 import { InputGroup, SelectGroup } from '../../../components/FormElements';
-import { parseDate, formatDate, calculateAge } from '../../../utils';
+import { calculateAge } from '../../../utils';
+import { BLOOD_GROUPS, COMPLEXIONS, MARITAL_STATUSES } from '../../../constants';
 
 interface PersonalTabProps {
     data: Biodata;
@@ -19,23 +20,10 @@ export const PersonalTab: React.FC<PersonalTabProps> = ({ data, onInputChange })
             placeholder="e.g. Aditi Sharma"
         />
         <div className="grid grid-cols-2 gap-4">
-            <div className="relative">
-                <label className="block text-xs font-semibold text-slate-500 uppercase mb-1">Date of Birth</label>
-                <div className="relative">
-                    <DatePicker
-                        selected={parseDate(data.personal.dob)}
-                        onChange={(date: Date | null) => onInputChange('personal', 'dob', formatDate(date))}
-                        dateFormat="dd MMM yyyy"
-                        placeholderText="Select Date"
-                        className="w-full pl-3 pr-10 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-rose-200 focus:border-rose-400 outline-none text-sm transition-all bg-white text-slate-900 cursor-pointer"
-                        showMonthDropdown
-                        showYearDropdown
-                        dropdownMode="select"
-                        icon={<Calendar size={16} />}
-                    />
-                    <Calendar className="absolute right-3 top-2.5 text-slate-400 pointer-events-none" size={16} />
-                </div>
-            </div>
+            <CustomDatePicker
+                value={data.personal.dob}
+                onChange={v => onInputChange('personal', 'dob', v)}
+            />
             {data.personal.dob && (
                 <div>
                     <label className="block text-xs font-semibold text-slate-500 uppercase mb-1">Age</label>
@@ -50,11 +38,11 @@ export const PersonalTab: React.FC<PersonalTabProps> = ({ data, onInputChange })
             <InputGroup label="Weight" value={data.personal.weight} onChange={v => onInputChange('personal', 'weight', v)} placeholder="60 Kg" />
         </div>
         <div className="grid grid-cols-2 gap-4">
-            <InputGroup label="Complexion" value={data.personal.complexion} onChange={v => onInputChange('personal', 'complexion', v)} placeholder="Fair" />
-            <InputGroup label="Blood Group" value={data.personal.bloodGroup} onChange={v => onInputChange('personal', 'bloodGroup', v)} placeholder="B+" />
+            <SelectGroup label="Complexion" value={data.personal.complexion} onChange={v => onInputChange('personal', 'complexion', v)} options={COMPLEXIONS} />
+            <SelectGroup label="Blood Group" value={data.personal.bloodGroup} onChange={v => onInputChange('personal', 'bloodGroup', v)} options={BLOOD_GROUPS} />
         </div>
         <InputGroup label="Mother Tongue" value={data.personal.motherTongue} onChange={v => onInputChange('personal', 'motherTongue', v)} />
-        <SelectGroup label="Marital Status" value={data.personal.maritalStatus} onChange={v => onInputChange('personal', 'maritalStatus', v)} options={['Never Married', 'Divorced', 'Widowed', 'Separated']} />
+        <SelectGroup label="Marital Status" value={data.personal.maritalStatus} onChange={v => onInputChange('personal', 'maritalStatus', v)} options={MARITAL_STATUSES} />
     </div>
 );
 

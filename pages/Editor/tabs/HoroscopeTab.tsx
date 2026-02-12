@@ -1,6 +1,7 @@
 import React from 'react';
 import { Biodata } from '../../../types';
 import { InputGroup, SelectGroup } from '../../../components/FormElements';
+import { MANGLIK_OPTIONS } from '../../../constants';
 
 interface HoroscopeTabProps {
     data: Biodata;
@@ -21,7 +22,7 @@ export const HoroscopeTab: React.FC<HoroscopeTabProps> = ({ data, onInputChange 
             <InputGroup label="Sub-caste" value={data.personal.subCaste} onChange={v => onInputChange('personal', 'subCaste', v)} />
             <InputGroup label="Gotra" value={data.personal.gotra} onChange={v => onInputChange('personal', 'gotra', v)} />
         </div>
-        <SelectGroup label="Manglik" value={data.personal.manglik} onChange={v => onInputChange('personal', 'manglik', v)} options={['No', 'Yes', 'Anshik Manglik', "Don't Know"]} />
+        <SelectGroup label="Manglik" value={data.personal.manglik} onChange={v => onInputChange('personal', 'manglik', v)} options={MANGLIK_OPTIONS} />
     </div>
 );
 

@@ -1,0 +1,53 @@
+# RishteBio - Professional Bio-Data Builder (Detailed Context)
+
+## Comprehensive Overview
+RishteBio is a state-of-the-art web application designed to simplify the creation of matrimonial and professional bio-data. By combining elegant UI design with Google's Gemini AI, it provides users with a seamless way to represent themselves professionally and traditionally.
+
+## Technical Architecture
+
+### 1. Frontend Architecture
+The application is built using **React 19** and **Vite**. It follows a modular structure where pages and components are separated for maintainability.
+- **State Management**: Primary application state for the bio-data form is managed within the `Editor` page and synchronized across various tab components.
+- **Type Safety**: Extensively uses TypeScript (`types.ts`) to ensure data consistency across the form and templates.
+- **Responsive Design**: Mobile-first approach with a dedicated `MobileBottomBar` and responsive templates.
+
+### 2. Features & Modules
+
+#### Bio-Data Editor (`/pages/Editor`)
+- **Personal Information**: Basic details like name, height, religion, and caste.
+- **Family Background**: Detailed family tree and occupation info.
+- **Education & Career**: Professional background, income, and educational milestones.
+- **Contact Details**: Multiple ways to reach the user.
+- **Draft Recovery**: Uses local storage via `DraftRecoveryModal` to prevent data loss.
+
+#### Template Engine (`components/BioTemplates.tsx`)
+- Contains multiple predefined templates.
+- Templates are rendered dynamically based on user selection.
+- High emphasis on typography and layout (using CSS Flexbox/Grid).
+
+#### AI Engine
+- Uses `@google/genai` to connect to **Google Gemini**.
+- Prompts are designed to take user inputs and transform them into poetic or professional bio-data descriptions.
+
+### 3. Key Components
+- `NavBar.tsx`: Responsive navigation with theme-aware styling.
+- `CustomDatePicker.tsx`: A premium date-of-birth selector.
+- `TemplateGalleryModal.tsx`: Visual selection interface for bio-data designs.
+- `BioTemplates.tsx`: The core rendering engine for the final output.
+
+## Code Conventions
+- **Functional Components**: All UI is built using React Functional Components and Hooks.
+- **Atomic Components**: Reusable pieces like `ToolbarButton` and `FormElements` are used to maintain consistency.
+- **CSS-in-JS/Tailwind**: Styling is handled through a mix of utility classes and structured CSS.
+
+## File Map
+- `/App.tsx`: Main entry point and router configuration.
+- `/pages/Home`: Landing page with feature highlights.
+- `/pages/Editor`: The main workspace for users.
+- `/components/BioTemplates.tsx`: Template definitions.
+- `/translations.ts`: Centralized text for internationalization or theme content.
+
+## Deployment & Development
+- **Build**: `npm run build` generates a performant production bundle via Vite.
+- **Environment**: Requires `GEMINI_API_KEY` in `.env.local` for AI features.
+- **Assets**: Optimized SVG icons (Lucide) and modern image formats (WebP).

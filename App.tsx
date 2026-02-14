@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Components
 import { NavBar, Footer, ScrollToTop } from './components';
@@ -11,7 +11,7 @@ const App: React.FC = () => {
   const [language, setLanguage] = useState<'en' | 'hi'>('en');
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <NavBar language={language} setLanguage={setLanguage} />
@@ -27,7 +27,7 @@ const App: React.FC = () => {
         </main>
         <Footer />
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 

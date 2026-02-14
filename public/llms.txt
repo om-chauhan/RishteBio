@@ -1,0 +1,31 @@
+# RishteBio - Professional Bio-Data Builder
+
+A premium, privacy-focused bio-data builder for matrimonial and professional purposes enhanced with AI assistance (Google Gemini).
+
+## Purpose
+RishteBio allows users to create, customize, and download high-quality marriage bio-data and professional profiles. It focuses on a clean user experience, beautiful typography, and AI-driven content generation.
+
+## Tech Stack
+- **Framework**: React 19 (TypeScript)
+- **Build Tool**: Vite
+- **AI Integration**: Google Gemini (@google/genai)
+- **Icons**: Lucide React
+- **Styling**: Modern CSS / Tailwind CSS
+- **Routing**: React Router DOM v7
+- **Date Handling**: date-fns, react-day-picker
+
+## Core Components
+- **Editor**: Multi-step form for Personal, Family, Education, and Work details.
+- **Templates**: A collection of premium, visually stunning bio-data designs.
+- **AI Studio**: Assistant for generating professional descriptions.
+- **Live Preview**: Real-time rendering of bio-data as users type.
+
+## Project Structure
+- `/src/pages`: Home, Editor, About, Contact, Policies.
+- `/src/components`: UI elements (NavBar, Footer, Templates, Editor components).
+- `/src/services`: Integration logic for external APIs.
+- `/src/types.ts`: Type definitions for bio-data and app state.
+- `/src/translations.ts`: Support for multiple languages/text content.
+
+## Key Links
+- Full Documentation: [/llms-full.txt](/llms-full.txt)

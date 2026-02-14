@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rishtebio.com/sitemap.xml
+Sitemap: https://rishtebio.pages.dev/sitemap.xml
+
+# LLM Crawler Context
+llms: https://rishtebio.pages.dev/llms.txt
+llms-full: https://rishtebio.pages.dev/llms-full.txt
